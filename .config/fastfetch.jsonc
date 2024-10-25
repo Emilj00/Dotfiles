@@ -1,0 +1,40 @@
+{
+    "logo": {
+        "type": "small"
+    },
+    "display": {
+        "separator": "     "
+    },
+    "modules": [
+        {
+            "type": "custom",
+            "format": "┌───────────────────────── \u001b[1mFastfetch\u001b[0m ────────────────────────┐"
+        },
+        {
+            "type": "os",
+            "key": "   Distro  "
+        },
+        {
+            "type": "cpu",
+            "key": "   CPU     "
+        },
+        {
+            "type": "gpu",
+            "key": "   GPU     "
+        },
+        {
+            "type": "battery",
+            "key": "   Battery "
+        },
+        {
+            "type": "custom",
+            "format": "└────────────────────────────────────────────────────────────┘"
+        },
+        "break",
+        {
+            "type": "colors",
+            "paddingLeft": 6,
+            "symbol": "circle"
+        }
+    ]
+}
