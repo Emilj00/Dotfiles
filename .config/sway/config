@@ -1,0 +1,165 @@
+exec "sudo powertop --auto-tune"
+exec "--no-startup-id python ~/.config/sway/i3-autosplit.py"
+exec "--no-startup-id blueman-applet"
+exec "waybar"
+exec --no-startup-id /usr/lib/kdeconnectd
+
+exec_always "killall waybar"
+exec_always "waybar"
+
+set $resizeStrength 50px
+set $mod Mod4
+
+set $browser firefox
+set $privatebrowser firefox --private-window
+set $filemanager nautilus -w
+set $term alacritty
+set $menu wmenu-run
+
+output * bg ~/Pictures/Wallpapers/astronaut-space-black-background-artwork-hd-wallpaper-7866ed583040dc28909c514e8812149a.png  fill
+
+bindsym --no-repeat --release Mod4 exec $term
+
+# Start a terminal
+bindsym $mod+G exec $menu
+bindsym $mod+T exec $term
+bindsym $mod+F exec $browser
+bindsym $mod+Shift+F exec $privatebrowser
+bindsym $mod+E exec $filemanager
+
+bindsym $mod+q kill
+
+# Dragging modifier
+floating_modifier $mod normal
+
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+
+# Exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+#
+# Moving around:
+#
+# Move your focus around
+bindsym $mod+A focus left
+bindsym $mod+S focus down
+bindsym $mod+W focus up
+bindsym $mod+D focus right
+# Or use $mod+[up|down|left|right]
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move the focused window with the same, but add Shift
+bindsym $mod+Shift+A move left
+bindsym $mod+Shift+S move down
+bindsym $mod+Shift+W move up
+bindsym $mod+Shift+D move right
+# Ditto, with arrow keys
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+#
+# Workspaces:
+#
+# Switch to workspace
+bindsym $mod+grave workspace number 1
+bindsym $mod+1 workspace number 2
+bindsym $mod+2 workspace number 3
+bindsym $mod+3 workspace number 4
+bindsym $mod+4 workspace number 5
+bindsym $mod+5 workspace number 6
+bindsym $mod+6 workspace number 7
+bindsym $mod+7 workspace number 8
+bindsym $mod+8 workspace number 9
+bindsym $mod+9 workspace number 10
+# Move focused container to workspace
+bindsym $mod+Shift+grave move container to workspace number 1
+bindsym $mod+Shift+1 move container to workspace number 2
+bindsym $mod+Shift+2 move container to workspace number 3
+bindsym $mod+Shift+3 move container to workspace number 4
+bindsym $mod+Shift+4 move container to workspace number 5
+bindsym $mod+Shift+5 move container to workspace number 6
+bindsym $mod+Shift+6 move container to workspace number 7
+bindsym $mod+Shift+7 move container to workspace number 8
+bindsym $mod+Shift+8 move container to workspace number 9
+bindsym $mod+Shift+9 move container to workspace number 10
+# Note: workspaces can have any name you want, not just numbers.
+# We just use 1-10 as the default.
+#
+# Layout stuff:
+#
+# You can "split" the current object of your focus with
+# $mod+b or $mod+v, for horizontal and vertical splits
+# respectively.
+bindsym $mod+b splith
+bindsym $mod+v splitv
+
+# Make the current focus fullscreen
+bindsym $mod+m fullscreen
+
+# Swap focus between the tiling area and the floating area
+bindsym $mod+space floating toggle
+
+bindsym --locked XF86AudioMute exec ~/.scripts/volumecontrol.sh mute
+bindsym --locked XF86AudioMicMute exec ~/.scripts/volumecontrol.sh mute-mic
+
+bindsym --locked XF86AudioLowerVolume exec ~/.scripts/volumecontrol.sh lower
+bindsym --locked XF86AudioRaiseVolume exec ~/.scripts/volumecontrol.sh raise
+
+# Special keys to adjust brightness via brightnessctl
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+
+# Special key to take a screenshot with grim
+bindsym Print exec XDG_CURRENT_DESKTOP=Sway flameshot gui -c -p ~/Pictures/Screenshots
+
+mode "resize" {
+    bindsym A resize shrink width $resizeStrength
+    bindsym S resize grow height $resizeStrength
+    bindsym W resize shrink height $resizeStrength
+    bindsym D resize grow width $resizeStrength
+
+    bindsym Left resize shrink width $resizeStrength
+    bindsym Down resize grow height $resizeStrength
+    bindsym Up resize shrink height $resizeStrength
+    bindsym Right resize grow width $resizeStrength
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+input * xkb_layout pl
+input "type:mouse" {
+    accel_profile flat
+    pointer_accel 0
+}
+
+input "type:touchpad" {
+    tap enabled
+    natural_scroll enabled
+
+    accel_profile flat
+    pointer_accel 0
+}
+
+gaps inner 10
+gaps outer 4
+
+client.focused          #89b4fa #89b4fa #6c5b7b #89b4fa #89b4fa
+client.focused_inactive #b5b8c1 #b5b8c1 #f38ba8 #b5b8c1 #b5b8c1
+client.unfocused        #b5b8c1 #b5b8c1 #f38ba8 #b5b8c1 #b5b8c1
+client.urgent           #f38ba8 #f38ba8 #89b4fa #f38ba8 #f38ba8
+
+default_border pixel 2
+default_floating_border pixel 2
+
+for_window [title="Network Connections"] floating enable
+for_window [title="Bluetooth Devices"] floating enable
+for_window [title="Volume Control"] floating enable
+
+focus_wrapping no

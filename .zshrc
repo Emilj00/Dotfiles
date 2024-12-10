@@ -1,3 +1,11 @@
+# Exports
+export MOZ_ENABLE_WAYLAND=1
+export "MICRO_TRUECOLOR=1"
+
+export PATH=$PATH:/home/emilj0/.local/bin
+export EDITOR="/usr/bin/micro"
+
+
 # Source aliases and theme
 source ~/.zsh-aliases.zsh
 source ~/.zsh-catppuccin-theme.zsh
@@ -60,11 +68,14 @@ zstyle ':completion:*' menu no
 
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+unset LS_COLORS
 
 
 # Keybinds
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
+
+bindkey '^[[3;5~' backward-kill-word
 
 bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word

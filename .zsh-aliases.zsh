@@ -10,6 +10,9 @@ alias lsla="ls -a -1"
 alias l='ls -lah'
 alias ll='ls -lh'
 alias la='ls -lAh'
+alias lsc='cls && ls'
+
+alias cp="cp -r"
 
 alias mkdir="mkdir -p"
 alias md='mkdir'
@@ -21,6 +24,9 @@ alias gt="goto"
 alias help="tldr"
 
 alias fastfetch="fastfetch --config ~/.config/fastfetch.jsonc"
+alias neofetch="fastfetch"
+alias clc='cloc --exclude-dir=.git --exclude-from=.gitignore'
+alias nano="micro"
 alias tree="tree -a ."
 alias st="speedtest-cli"
 
