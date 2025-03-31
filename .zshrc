@@ -2,9 +2,11 @@
 export MOZ_ENABLE_WAYLAND=1
 export "MICRO_TRUECOLOR=1"
 
-export PATH=$PATH:/home/emilj0/.local/bin
-export EDITOR="/usr/bin/micro"
+export PATH="$PATH:/home/emilj00/.dotnet/tools"
+export PATH=$PATH:/home/emilj00/.local/bin
+export PATH="$HOME/.cargo/bin:$PATH"
 
+export EDITOR="/usr/bin/micro"
 
 # Source aliases and theme
 source ~/.zsh-aliases.zsh
@@ -75,7 +77,7 @@ unset LS_COLORS
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
-bindkey '^[[3;5~' backward-kill-word
+bindkey '^H' backward-kill-word
 
 bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
@@ -85,3 +87,7 @@ bindkey '^[[1;5C' forward-word
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
 eval "$(oh-my-posh init zsh --config ~/.oh-my-posh.json)"
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
