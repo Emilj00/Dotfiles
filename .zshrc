@@ -88,6 +88,3 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
 eval "$(oh-my-posh init zsh --config ~/.oh-my-posh.json)"
 
-
-# Load Angular CLI autocompletion.
-source <(ng completion script)

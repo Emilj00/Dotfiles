@@ -1,0 +1,48 @@
+{
+  "theme.font.size": "0.9rem",
+  "bar.layouts": {
+    "0": {
+      "left": [
+        "dashboard",
+        "windowtitle"
+      ],
+      "middle": [
+        "media"
+      ],
+      "right": [
+        "volume",
+        "bluetooth",
+        "battery",
+        "systray",
+        "clock",
+        "notifications"
+      ]
+    },
+    "1": {
+      "left": [],
+      "middle": [],
+      "right": []
+    },
+    "2": {
+      "left": [],
+      "middle": [],
+      "right": []
+    }
+  },
+  "theme.bar.floating": true,
+  "bar.autoHide": "fullscreen",
+  "theme.bar.buttons.enableBorders": true,
+  "theme.bar.buttons.borderSize": "0.04em",
+  "theme.bar.enableShadow": false,
+  "theme.bar.background": "#1e1e2e",
+  "theme.bar.transparent": false,
+  "theme.bar.opacity": 80,
+  "menus.media.hideAuthor": false,
+  "menus.media.noMediaText": "No Media Currently Playing",
+  "theme.bar.scaling": 95,
+  "theme.bar.border.location": "none",
+  "theme.bar.outer_spacing": "1.6em",
+  "theme.bar.buttons.y_margins": "0.4em",
+  "theme.bar.margin_sides": "0.5em",
+  "theme.bar.margin_bottom": "0em"
+}

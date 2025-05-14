@@ -3,6 +3,8 @@ alias apt="dnf"
 
 alias whereami="pwd"
 
+alias npm="yarn"
+
 alias ls="exa --icons"
 alias lsl="ls -1"
 alias lsa='ls -a'
