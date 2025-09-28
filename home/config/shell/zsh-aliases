@@ -1,0 +1,34 @@
+alias update="sudo nixos-rebuild switch --flake ~/Dotfiles${hostname}"
+
+alias fastfetch="fastfetch --config ~/.config/fastfetch.jsonc"
+
+alias clear="clear && fastfetch"
+alias c="clear"
+
+alias find="fd"
+alias grep="rg"
+
+# Cds
+alias ..="cd .."
+alias ...="cd ../../"
+alias ....="cd ../../../"
+alias .....="cd ../../../../"
+
+alias -- -='cd -'
+alias ~="cd ~"
+
+alias md="mkdir -p"
+
+alias ls="eza --icons --git"
+alias lsa="ls -a"
+
+alias nano="micro"
+
+
+cd() {
+  if [ $# -eq 0 ]; then
+    builtin cd ~
+  else
+    z "$@"
+  fi
+}

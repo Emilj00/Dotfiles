@@ -1,0 +1,78 @@
+# Plugin manager
+if [[ -f ~/.zcomet/zcomet.zsh ]]; then
+    source ~/.zcomet/zcomet.zsh
+else
+    echo "zcomet not found, installing..."
+    git clone https://github.com/agkozak/zcomet ~/.zcomet
+    source ~/.zcomet/zcomet.zsh
+fi
+
+
+
+# Load aliases
+source ~/.zsh-aliases
+
+
+
+# Pure style
+fastfetch
+
+precmd() { 
+    current_dir=$(pwd)
+    
+    if [[ "$current_dir" == "$HOME"* ]]; then
+        current_dir="~${current_dir#$HOME}"
+    fi
+
+    print
+    print "$current_dir"
+}
+
+export PROMPT_EOL_MARK=''
+export PROMPT=" "
+
+
+
+# History
+HISTFILE=~/.zsh_history
+
+HISTSIZE=1000
+SAVEHIST=1000
+
+
+
+# Keybinds
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
+
+bindkey '^H' backward-kill-word
+
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+
+
+
+# Shell integrations
+source <(fzf --zsh)
+source <(zoxide init zsh)
+
+
+
+# Plugins
+zcomet load zsh-users/zsh-autosuggestions
+zcomet load zsh-users/zsh-syntax-highlighting
+
+zcomet load hcgraf/zsh-sudo
+zcomet load Aloxaf/fzf-tab
+
+
+
+# Completions
+autoload -Uz compinit && compinit -C
+
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --icons --color=always -a $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza --icons --color=always -a $realpath'
+
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no

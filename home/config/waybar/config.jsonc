@@ -1,0 +1,112 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 35,
+  "margin": "10px 25px 0 20px",
+  "modules-left": [
+    // "hyprland/window",
+    "clock"
+  ],
+  "modules-center": [
+    "hyprland/workspaces",
+    "hyprland/mode",
+    "custom/media"
+  ],
+  "modules-right": [
+    "cpu",
+    "pulseaudio",
+    "battery",
+    "tray"
+  ],
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "disable-markup": false,
+    "format": "  {icon}  ",
+    "format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10"
+    }
+  },
+  "hyprland/window": {
+    "max-length": 20,
+    "format": "{}",
+    "format-empty": "󰣇"
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+  "tray": {
+    "icon-size": 21,
+    "spacing": 10
+  },
+  "clock": {
+    "interval": 1,
+    "format": "<span color=\"#ffa500\"></span>  {:%H : %M : %S}",
+    "format-alt": "<span color=\"#bd93f9\"></span>   {:%d / %m / %Y}"
+  },
+  "clock#time": {
+    "interval": 1,
+    "format": "{:%H:%M:%S}",
+    "tooltip": false
+  },
+  "clock#date": {
+    "interval": 10,
+    "format": "  {:%e %b %Y}",
+    "tooltip-format": "{:%e %B %Y}",
+    "on-click": "~/work/scripts/popup-calendar.sh --popup"
+  },
+  "cpu": {
+    "format": "<span color=\"#f1fa8c\"></span>  {usage}%  ({load})"
+  },
+  "memory": {
+    "format": "{}% "
+  },
+  "battery": {
+    "interval": 10,
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}  {capacity}%",
+    "format-icons": [
+      "<span color=\"#ff5555\"></span>",
+      "<span color=\"#ffb86c\"></span>",
+      "<span color=\"#f1fa8c\"></span>",
+      "<span color=\"#50fa7b\"></span>",
+      "<span color=\"#50fa7b\"></span>"
+    ]
+  },
+  "network": {
+    "format-wifi": "",
+    "format-ethernet": "",
+    "format-disconnected": "⚠",
+    "interval": 7
+  },
+  "pulseaudio": {
+    "format": "<span color=\"#8be9fd\">{icon}</span>  {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "headphones": "",
+      "handsfree": "",
+      "headset": "",
+      "default": [
+        "",
+        ""
+      ]
+    },
+    "on-click": "pavucontrol"
+  }
+}

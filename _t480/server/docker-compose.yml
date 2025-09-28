@@ -1,0 +1,4 @@
+include:
+  - ./music.yml
+  - ./movies-and-series.yml
+  - ./cloud.yml
