@@ -1,4 +1,4 @@
-alias update="sudo nixos-rebuild switch --flake ~/Dotfiles${hostname}"
+alias update="sudo nixos-rebuild switch --impure --flake ~/Dotfiles#${hostname}"
 
 alias fastfetch="fastfetch --config ~/.config/fastfetch.jsonc"
 
@@ -23,7 +23,7 @@ alias ls="eza --icons --git"
 alias lsa="ls -a"
 
 alias nano="micro"
-
+alias cat="bat"
 
 cd() {
   if [ $# -eq 0 ]; then

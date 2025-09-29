@@ -21,10 +21,15 @@
     update_ms = 100;
   };
 
-  programs.lazydocker.enable = true;
-  # programs.lazydocker.settings = {
-
+  programs.bat.enable = true;
+  # programs.bat.settings = {
+  #   theme = "gruvbox-dark";
   # };
+
+  programs.lazydocker.enable = true;
+  programs.lazydocker.settings = {
+    gui.returnImmediately = true;
+  };
 
   # programs.tmux.enable = true;
   # home.activation.setup-tpm = ''
