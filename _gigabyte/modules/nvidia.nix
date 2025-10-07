@@ -4,9 +4,6 @@
   # Run everything on dgpu
   environment.variables = {
     AQ_DRM_DEVICES = "/dev/dri/card0";
-    # GBM_BACKEND = "nvidia-drm";
-    # __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    # LIBVA_DRIVER_NAME = "nvidia";
   };
 
   specialisation.intel-gpu.configuration = {
@@ -24,12 +21,11 @@
 
   hardware.nvidia = {
     package = config.boot.kernelPackages.nvidiaPackages.beta;
+    open = true;
 
     modesetting.enable = true;
 
     powerManagement.enable = false;
     powerManagement.finegrained = false;
-
-    open = false;
   };
 }

@@ -13,7 +13,7 @@
 
     udisks2
     unzip
-    unrar-free
+    unrar
   ];
 
   services.gvfs.enable = true;

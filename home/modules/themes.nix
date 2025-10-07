@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 let
+  username = config.home.username;
+
   gtkTheme =
     pkgs.runCommand "unpack-gtk-theme"
       {
@@ -15,6 +17,10 @@ let
         for gtkver in 3.0 4.0; do
           echo "[Settings]"                       >> $out/gtk-$gtkver/settings.ini
           echo "gtk-icon-theme-name=Papirus-Dark" >> $out/gtk-$gtkver/settings.ini
+
+          echo "file:///home/${username}/Documents"  >> $out/gtk-$gtkver/bookmarks
+          echo "file:///home/${username}/Downloads"  >> $out/gtk-$gtkver/bookmarks
+          echo "file:///home/${username}/Games"  >> $out/gtk-$gtkver/bookmarks
         done
       '';
 

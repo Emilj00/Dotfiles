@@ -22,5 +22,6 @@ in
     hyprland
     waybar
     swww
+    networkmanagerapplet
   ];
 }

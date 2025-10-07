@@ -32,11 +32,20 @@
   };
 
   # programs.tmux.enable = true;
-  # home.activation.setup-tpm = ''
-  #   if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
-  #     ${pkgs.git}/bin/git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
-  #   fi
-  # '';
+  programs.tmux = {
+    enable = true;
+
+    plugins = with pkgs.tmuxPlugins; [
+      gruvbox
+      sensible
+    ];
+  };
+
+  home.activation.setup-tpm = ''
+    if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+      ${pkgs.git}/bin/git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+    fi
+  '';
 
   home.file = {
     ".zshrc".source = ../config/shell/zshrc;

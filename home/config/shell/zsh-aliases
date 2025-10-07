@@ -1,4 +1,4 @@
-alias update="sudo nixos-rebuild switch --impure --flake ~/Dotfiles#${hostname}"
+alias update="sudo nixos-rebuild switch --impure --flake 'path:$HOME/Dotfiles${hostname}'"
 
 alias fastfetch="fastfetch --config ~/.config/fastfetch.jsonc"
 
