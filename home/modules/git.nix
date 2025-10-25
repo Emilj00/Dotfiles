@@ -15,10 +15,8 @@ in
 
     extraConfig = lib.mkForce ''
       [credential "https://github.com"]
-        helper =
         helper = !${ghPath}/bin/gh auth git-credential
       [credential "https://gist.github.com"]
-        helper =
         helper = !${ghPath}/bin/gh auth git-credential
     '';
   };

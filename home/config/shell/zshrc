@@ -24,8 +24,14 @@ precmd() {
         current_dir="~${current_dir#$HOME}"
     fi
 
+    ssh_indicator=""
+
+    if [[ -n "$SSH_CONNECTION" ]]; then
+        ssh_indicator="\e[31m[SSH]\e[0m"
+    fi
+
     print
-    print "$current_dir"
+    print "$ssh_indicator $current_dir"
 }
 
 export PROMPT_EOL_MARK=''

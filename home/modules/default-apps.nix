@@ -7,9 +7,13 @@ let
     x-scheme-handler/about=org.mozilla.firefox.desktop
     x-scheme-handler/unknown=org.mozilla.firefox.desktop
     application/zip=org.gnome.Nautilus.desktop
+    image/jpeg=org.gnome.Loupe.desktop
+    image/png=org.gnome.Loupe.desktop
+    video/mp4=io.github.celluloid_player.Celluloid.desktop
 
     [Added Associations]
     application/zip=org.gnome.Nautilus.desktop;
+    video/mp4=io.github.celluloid_player.Celluloid.desktop;
 
     [Removed Associations]
     application/zip=org.prismlauncher.PrismLauncher.desktop;

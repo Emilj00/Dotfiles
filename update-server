@@ -5,4 +5,4 @@ export NIXPKGS_ALLOW_UNFREE=1
 nix run nixpkgs#nixos-rebuild --impure -- switch \
   --target-host root@homeserver.me \
   --use-remote-sudo \
-  --flake .#t480
+  --flake 'path:/home/emilj00/Dotfiles#t480'

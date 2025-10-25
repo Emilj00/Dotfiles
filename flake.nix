@@ -2,7 +2,7 @@
   description = "NixOS configurations for multiple hosts (T480, Gigabyte, etc.)";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.6.0";
   };
@@ -40,9 +40,9 @@
             home-manager.nixosModules.home-manager
 
             {
+              system.stateVersion = "25.11";
               networking.hostName = name;
 
-              home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
 
               home-manager.users.emilj00 = sharedHomeConfig name;

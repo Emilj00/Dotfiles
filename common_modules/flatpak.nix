@@ -14,4 +14,10 @@
       location = "https://dl.flathub.org/repo/flathub.flatpakrepo";
     }
   ];
+
+  services.flatpak.packages = [
+    "org.mozilla.firefox"
+    "org.gnome.Loupe"
+    "io.github.celluloid_player.Celluloid"
+  ];
 }

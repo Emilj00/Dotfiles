@@ -1,105 +1,91 @@
+@define-color foreground #d4be98;
+@define-color background #282828;
+
 * {
-  border: none;
-  border-radius: 0;
-  font-family: 'Noto Sans', 'Font Awesome 6 Free', 'Font Awesome 6 Brands', Helvetica, Arial, sans-serif;
-  font-size: 11pt;
+  color: @foreground;
+
   min-height: 0;
+  font-family: 'JetBrainsMono Nerd Font';
+  font-size: 17px;
+  
+  padding-bottom: 1px;
+  padding-top: 0px;
 }
 
 window#waybar {
-  background-color: rgba(0, 0, 0, 0);
-  color: #ffffff;
+  background-color: transparent;
+  /* border-bottom: 2px solid #de8706; */
 }
 
-window#waybar.hidden {
-  opacity: 0.0;
+.modules-left {
+  margin-left: 8px;
 }
 
-#workspaces {
-  border: 2px solid #ffa500;
-  background-color: #282828;
-  border-radius: 10px;
-  padding: 0 15px;
-  margin: 0;
+.modules-right {
+  margin-right: 8px;
 }
 
 #workspaces button {
-  padding: 4px 0;
-  background: transparent;
-  color: #ffffff;
+  all: initial;
+  padding: 0 6px;
+  margin: 0 1.5px;
+  min-width: 9px;
 }
 
-#workspaces button.active {
-  color: #ffa500;
-  font-weight: bold;
+#workspaces button.empty {
+  opacity: 0.5;
 }
-
-#workspaces button:hover {
-  box-shadow: none;
-  text-shadow: none;
-  border-bottom: 3px solid #ff79c6;
+#pulseaudio {
+  padding-right: 5px;
 }
-
-#window {
-  border-radius: 10px;
-  margin: 0 0px 0 0;
-}
-
-#window,
-#clock,
-#battery,
 #cpu,
-#memory,
-#temperature,
-#backlight,
-#network,
-#pulseaudio,
-#custom-media,
-#tray,
-#mode,
-#idle_inhibitor {
-  border: 2px solid #ffa500;
-  background-color: #282828;
-  padding: 4px 17px;
-}
-
-#clock,
 #battery,
-#cpu,
-#memory,
-#temperature,
-#backlight,
-#network,
 #pulseaudio,
-#custom-media,
-#tray,
-#mode,
-#idle_inhibitor {
-  margin: 0 10px;
-  border: 2px solid #ffa500;
-  background-color: #282828;
-  color: #ffffff;
-  border-radius: 10px;
-}
-
-@keyframes blink {
-  to {
-    background-color: #ffffff;
-    color: #000000;
-  }
-}
-
-#battery.critical:not(.charging) {
-  background: #f53c3c;
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+#custom-omarchy,
+#custom-screenrecording-indicator,
+#custom-update {
+  min-width: 12px;
+  margin: 0 7.5px;
 }
 
 #tray {
-  border-radius: 10px;
-  margin: 0 0 0 10px;
-  padding: 0 15px;
+  margin-right: 16px;
+}
+
+#bluetooth {
+  margin-right: 17px;
+}
+
+#network {
+  margin-right: 13px;
+}
+
+#custom-expand-icon {
+  margin-right: 20px;
+}
+
+tooltip {
+  padding: 2px;
+}
+
+#custom-update {
+  font-size: 10px;
+}
+
+#clock {
+  margin-left: 8.75px;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+#custom-screenrecording-indicator {
+  min-width: 12px;
+  margin-left: 8.75px;
+  font-size: 10px;
+}
+
+#custom-screenrecording-indicator.active {
+  color: #a55555;
 }
