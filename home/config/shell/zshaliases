@@ -24,6 +24,7 @@ alias lsa="ls -a"
 
 alias nano="micro"
 alias cat="bat"
+alias dog="cat --paging=never"
 
 cd() {
   if [ $# -eq 0 ]; then

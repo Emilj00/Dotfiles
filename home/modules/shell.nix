@@ -81,7 +81,8 @@
 
   home.file = {
     ".zshrc".source = ../config/shell/zshrc;
-    ".zsh-aliases".source = ../config/shell/zsh-aliases;
+    ".zshenv".source = ../config/shell/zshenv;
+    ".zshaliases".source = ../config/shell/zshaliases;
     ".config/fastfetch.jsonc".source = ../config/shell/fastfetch.jsonc;
   };
 }

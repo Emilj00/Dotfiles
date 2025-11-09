@@ -10,7 +10,7 @@ fi
 
 
 # Load aliases
-source ~/.zsh-aliases
+source ~/.zshaliases
 
 
 
