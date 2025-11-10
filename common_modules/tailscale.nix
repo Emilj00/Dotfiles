@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, secrets, ... }:
 
 let
-  authKey = "tskey-auth-kYwXMXPMGo11CNTRL-YV1BmdE9xz8M7ctrLE1cz8uFQmVEMW5pU";
+  authKey = if secrets.TAILSCALE_KEY == "" then throw "authkey cannot be empty" else secrets.TAILSCALE_KEY;
 in
 {
   services.tailscale.enable = true;
