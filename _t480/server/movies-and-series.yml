@@ -9,7 +9,7 @@ services:
       - PGID=0
 
     devices:
-      - /dev/dri:/dev/dri 
+      - /dev/dri:/dev/dri
     volumes:
       - jellyfin-data:/config
       - /srv/media/tv:/data/tvshows
@@ -66,7 +66,7 @@ services:
       - radarr
       - sonarr
 
-    
+
 
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:latest

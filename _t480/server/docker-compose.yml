@@ -1,5 +1,4 @@
 include:
-  - ./core.yml
   - ./music.yml
   - ./movies-and-series.yml
   - ./development.yml
