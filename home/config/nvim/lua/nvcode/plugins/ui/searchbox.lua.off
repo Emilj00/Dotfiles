@@ -1,0 +1,46 @@
+local function config()
+  vim.api.nvim_set_hl(0, "Search", { bg = "#EBA434", fg = "#000000", bold = true })
+  vim.api.nvim_set_hl(0, "IncSearch", { bg = "#EB8334", fg = "#000000", bold = true })
+
+  vim.api.nvim_set_hl(0, "CursorLine", { bg = "NONE" })
+
+  local searchbox = require('searchbox')
+  searchbox.setup({
+    show_matches = true,
+    confirm = 'on',
+
+    hooks = {
+      after_mount = function(input)
+        local opts = { buffer = input.bufnr }
+        -- Jump to the match under the cursor on <Esc>
+        -- vim.keymap.set('i', '<Esc>', function()
+        --   local value = vim.fn["searchbox#get_input"]() -- get the current search text
+        --   if value ~= "" then
+        --     -- jump to the first match (or next)
+        --     vim.fn.search(value, 'c')
+        --   end
+        --   vim.fn["searchbox#close"]()
+        -- end, { buffer = input.bufnr })
+
+        vim.keymap.set('i', '<Enter>', '<Plug>(searchbox-next-match)', opts)
+        vim.keymap.set('i', '<C-r>', '<Plug>(searchbox-replace-step)', opts)
+      end,
+    }
+  })
+
+  vim.keymap.set('i', '<C-f>', function()
+    searchbox.match_all({ show_matches = true, clear_matches = true })
+  end)
+end
+
+
+local dependencies = {
+  "MunifTanjim/nui.nvim"
+}
+
+return {
+  "VonHeikemen/searchbox.nvim",
+
+  config = config,
+  dependencies = dependencies
+}

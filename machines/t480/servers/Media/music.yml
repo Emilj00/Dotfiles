@@ -23,7 +23,7 @@ services:
       - 4001:6595
 
 
-c
+
 volumes:
   navidrome-data:
   deemix-data:

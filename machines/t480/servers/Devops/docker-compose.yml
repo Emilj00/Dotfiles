@@ -24,7 +24,7 @@ services:
     volumes:
       - gitea-runner-data:/etc/actrunner
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./Configs/gitea-runner-config.yaml:/config.yaml
+      - ./gitea-runner-config.yaml:/config.yaml
     depends_on:
       - gitea
 

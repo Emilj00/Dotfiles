@@ -1,10 +1,14 @@
-{ pkgs, secrets, ... }:
-
-let
-  password = secrets.USERS_PASSWORD;
-  finalPassword = if password == "" then throw "password cannot be empty" else password;
-in
 {
+  pkgs,
+  secrets,
+  ...
+}: let
+  password = secrets.USERS_PASSWORD;
+  finalPassword =
+    if password == ""
+    then throw "password cannot be empty"
+    else password;
+in {
   programs.zsh.enable = true;
 
   # Users
@@ -23,6 +27,7 @@ in
         "storage"
         "docker"
         "video"
+        "input"
       ];
 
       password = finalPassword;

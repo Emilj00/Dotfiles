@@ -31,8 +31,8 @@
         nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
-            ./_${name}/hardware-configuration.nix
-            ./_${name}/modules
+            ./machines/${name}/hardware-configuration.nix
+            ./machines/${name}/modules
 
             commonModules
 

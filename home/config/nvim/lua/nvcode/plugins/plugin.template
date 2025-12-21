@@ -1,0 +1,14 @@
+function config()
+
+end
+
+local dependencies = {
+
+}
+
+return {
+  "",
+
+  config = config,
+  dependencies = dependencies
+}

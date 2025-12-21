@@ -23,27 +23,8 @@ let
           echo "file:///home/${username}/Games"  >> $out/gtk-$gtkver/bookmarks
         done
       '';
-
-  iconTheme =
-    pkgs.runCommand "unpack-icons-theme"
-      {
-        buildInputs = [ pkgs.unzip ];
-        src = ../zips/icons.zip;
-      }
-      ''
-        mkdir -p $out
-        unzip -q $src "*/Papirus/*" "*/Papirus-Dark/*" -d temp
-
-        mv temp/*/Papirus $out/
-        mv temp/*/Papirus-Dark $out/
-
-        chmod -R 755 $out
-      '';
 in
 {
-  home.file.".icons/Papirus".source = "${iconTheme}/Papirus";
-  home.file.".icons/Papirus-Dark".source = "${iconTheme}/Papirus-Dark";
-
   home.file.".themes/Theme".source = gtkTheme;
 
   home.file.".config/cinnamon".source = "${gtkTheme}/cinnamon";
@@ -66,8 +47,10 @@ in
     size = 24;
   };
 
-  dconf.settings."org/gnome/desktop/interface" = {
-    icon-theme = "Papirus-Dark";
+  gtk.enable = true;
+  gtk.iconTheme = {
+    package = pkgs.papirus-icon-theme;
+    name = "Papirus-Dark";
   };
 
   home.activation.setup-flatpak-theme = ''
@@ -75,6 +58,6 @@ in
     ${pkgs.flatpak}/bin/flatpak override --user --filesystem=$HOME/.icons
 
     ${pkgs.flatpak}/bin/flatpak override --user --filesystem=xdg-config/gtk-4.0
-    ${pkgs.flatpak}/bin/flatpak override --user --env=ICON_THEME=Papirus-Dark 
+    ${pkgs.flatpak}/bin/flatpak override --user --env=ICON_THEME=Papirus
   '';
 }

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+export NIXPKGS_ALLOW_UNFREE=1
+
+nix run nixpkgs#nixos-rebuild --impure -- switch \
+    --target-host root@192.168.1.200 \
+    --use-remote-sudo \
+    --flake 'path:home/home/emilj00/Dotfiles#t480'
