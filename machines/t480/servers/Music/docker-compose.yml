@@ -1,0 +1,39 @@
+services:
+  navidrome:
+    image: deluan/navidrome:latest
+    container_name: navidrome
+    restart: unless-stopped
+
+    ports:
+      - "4000:4533"
+    volumes:
+      - "/srv/music:/music:ro"
+      - "navidrome-data:/data"
+
+
+  downtify:
+    image: ghcr.io/henriquesebastiao/downtify:latest
+    container_name: downtify
+    restart: unless-stopped
+    
+    ports:
+      - "4001:8000"
+    volumes:
+      - /srv/music:/downloads
+      
+  # deemix:
+    # image: finniedj/deemix
+    # container_name: deemix
+    # restart: unless-stopped
+
+    # volumes:
+      # - /srv/music/:/downloads
+      # - deemix-data:/config
+    # ports:
+      # - 4001:6595
+
+
+
+volumes:
+  navidrome-data:
+  deemix-data:

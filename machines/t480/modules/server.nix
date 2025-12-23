@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 
 let
-  serversSrc = builtins.path ../servers;
+  serversSrc = toString ../servers;
 
   dir = builtins.readDir serversSrc;
 
@@ -15,7 +15,7 @@ let
   );
 
   mkServer = name: {
-    name = "docker-compose-${name}";
+    name = "Docker-Compose-${name}";
     value = {
       description = "Docker Server - ${name}";
       after = [ "docker.service" ];
