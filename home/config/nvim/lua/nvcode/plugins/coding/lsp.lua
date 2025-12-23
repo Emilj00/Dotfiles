@@ -88,7 +88,7 @@ local dependencies = {
 	"williamboman/mason-lspconfig.nvim",
 
 	"nvimtools/none-ls.nvim",
-	"jayp0525/mason-null-ls.nvim",
+	"jay-babu/mason-null-ls.nvim",
 }
 
 return {
