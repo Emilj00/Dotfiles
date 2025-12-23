@@ -16,6 +16,8 @@ local function config()
         show_close_icon = false,
         separator_style = "slant",
         enforce_regular_tabs = true,
+
+        insert_at_start = true,
     })
 
     local function switch_to_buffer(i)
@@ -45,3 +47,4 @@ return {
     config = config,
     dependencies = dependencies,
 }
+

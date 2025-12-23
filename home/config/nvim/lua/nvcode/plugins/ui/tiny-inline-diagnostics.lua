@@ -12,7 +12,7 @@ local function config()
       blend = {
           factor = 0.22,
       },
-      show_all_lines = true, 
+      show_all_lines = true,
   })
 end
 

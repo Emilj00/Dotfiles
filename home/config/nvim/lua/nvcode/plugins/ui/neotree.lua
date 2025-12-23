@@ -40,7 +40,7 @@ local function config()
     },
   })
 
-  map({"i", "v"}, "<C-b>", "<Esc><cmd>Neotree toggle<CR>", { silent = true })
+  map({"i", "v"}, "<C-b>", "<Esc><cmd>Neotree<CR>", { silent = true })
 end
 
 local dependencies = {

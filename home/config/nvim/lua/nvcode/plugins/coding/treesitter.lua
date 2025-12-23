@@ -1,29 +1,25 @@
 local function config()
-    local treesitter = require('nvim-treesitter.config')
-    treesitter.setup({
-        auto_install = true,
+	local treesitter = require("nvim-treesitter.config")
+	treesitter.setup({
+		auto_install = true,
 
-        highlight = {
-            enable = true,
-            additional_vim_regex_highlighting = false,
-        },
+		highlight = {
+			enable = true,
+			additional_vim_regex_highlighting = false,
+		},
 
-        indent = { enable = true, },
-    })
+		indent = { enable = true },
+	})
 end
 
-
-local dependencies = {
-
-}
+local dependencies = {}
 
 return {
-  'nvim-treesitter/nvim-treesitter',
+	"nvim-treesitter/nvim-treesitter",
 
-  lazy = false,
-  build = ':TSUpdate',
+	lazy = false,
+	build = ":TSUpdate",
 
-  config = config,
-  dependencies = dependencies,
+	config = config,
+	dependencies = dependencies,
 }
-

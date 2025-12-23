@@ -65,3 +65,9 @@ map("v", "<Down>", function() handle_vertical("down") end)
 
 map("i", "<Home>", "<C-o>^")
 map("i", "<End>",  "<C-o>$")
+
+map('i', '<A-w>', '<Esc><C-w>h')
+map('i', '<A-s>', '<Esc><C-w>j')
+map('i', '<A-a>', '<Esc><C-w>k')
+map('i', '<A-d>', '<Esc><C-w>l')
+
