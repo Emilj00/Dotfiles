@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, utils, ... }:
 
 let
   alacrittyThemes = pkgs.fetchgit {
@@ -10,6 +10,6 @@ in
 {
   programs.alacritty.enable = true;
 
-  home.file.".config/alacritty/alacritty.toml".source = ../config/alacritty/alacritty.toml;
+  home.file.".config/alacritty/alacritty.toml".source = utils.mkSymlink "/home/config/alacritty/alacritty.toml";
   home.file.".config/alacritty/themes".source = alacrittyThemes;
 }

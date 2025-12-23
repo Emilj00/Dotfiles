@@ -1,3 +1,5 @@
+{ config, lib, ...}:
+
 {
   nixpkgs.config.allowUnfree = true;
 
@@ -6,5 +8,6 @@
 
   home.stateVersion = "25.05";
 
+  _module.args.utils = import ../lib/utils.nix { inherit config lib; };
   imports = [ ./modules ];
 }
