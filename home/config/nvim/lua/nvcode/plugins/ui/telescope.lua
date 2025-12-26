@@ -11,6 +11,9 @@ local function config()
 				i = {
 					["<esc>"] = actions.close,
 				},
+                n = {
+					["<esc>"] = actions.close,
+                }
 			},
 		},
 		pickers = {
@@ -25,7 +28,13 @@ local function config()
 	})
 
 	map("i", "<C-e>", builtin.find_files)
+    map({ "n", "i" }, "<C-f>", builtin.live_grep)
+    -- map("i", "<C-S-f>", builtin.live_grep)
 	map("i", "<C-t>", builtin.colorscheme)
+
+    map("n", "<C-e>", builtin.find_files)
+    -- map("n", "<C-S-f>", builtin.live_grep)
+	map("n", "<C-t>", builtin.colorscheme)
 end
 
 local dependencies = {

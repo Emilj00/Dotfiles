@@ -1,4 +1,10 @@
 local function config()
+	vim.filetype.add({
+		extension = {
+			inl = "cpp",
+		},
+	})
+
 	local treesitter = require("nvim-treesitter.config")
 	treesitter.setup({
 		auto_install = true,
