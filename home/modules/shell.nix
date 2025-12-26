@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, utils, ... }:
 
 {
   home.packages = with pkgs; [
@@ -80,9 +80,9 @@
   };
 
   home.file = {
-    ".zshrc".source = ../config/shell/zshrc;
-    ".zshenv".source = ../config/shell/zshenv;
-    ".zshaliases".source = ../config/shell/zshaliases;
-    ".config/fastfetch.jsonc".source = ../config/shell/fastfetch.jsonc;
+    ".zshrc".source = utils.mkSymlink /home/config/shell/zshrc;
+    ".zshenv".source = utils.mkSymlink /home/config/shell/zshenv;
+    ".zshaliases".source = utils.mkSymlink /home/config/shell/zshaliases;
+    ".config/fastfetch.jsonc".source = utils.mkSymlink /home/config/shell/fastfetch.jsonc;
   };
 }
