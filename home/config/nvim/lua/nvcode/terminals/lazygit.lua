@@ -20,7 +20,7 @@ local function download_lazygit()
 		arch = "x86_64"
 	end -- standard
 
-	local version = "0.40.2"
+	local version = "0.57.0"
 	local extension = is_windows and "zip" or "tar.gz"
 	local url = string.format(
 		"https://github.com/jesseduffield/lazygit/releases/download/v%s/lazygit_%s_%s_%s.%s",
