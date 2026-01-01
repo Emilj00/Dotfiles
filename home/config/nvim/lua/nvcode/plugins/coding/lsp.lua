@@ -24,7 +24,7 @@ local function config()
 
 	vim.diagnostic.config({
 		virtual_text = true,
-		signs = false,
+		signs = true,
 		underline = false,
 		update_in_insert = true,
 	})
@@ -97,3 +97,4 @@ return {
 	config = config,
 	dependencies = dependencies,
 }
+

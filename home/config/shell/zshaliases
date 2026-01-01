@@ -22,7 +22,6 @@ alias md="mkdir -p"
 alias ls="eza --icons --git"
 alias lsa="ls -a"
 
-alias nano="micro"
 alias cat="bat"
 alias dog="cat --paging=never"
 

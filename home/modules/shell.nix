@@ -6,12 +6,10 @@
     fzf
     zoxide
 
-    micro
-    cloc
-
     fd
     ripgrep
 
+    cloc
     fastfetch
   ];
 

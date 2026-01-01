@@ -30,6 +30,7 @@
 
         WorkingDirectory = "/var/lib/servers/${name}";
 
+        ExecStartPre = "${pkgs.docker-compose}/bin/docker-compose pull";
         ExecStart = "${pkgs.docker-compose}/bin/docker-compose up";
         ExecStop = "${pkgs.docker-compose}/bin/docker-compose down";
 

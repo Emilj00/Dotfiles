@@ -33,9 +33,8 @@ map("v", "<S-C-Left>", "b")
 map("v", "<Esc>", "<Esc>i")
 
 
-
-map("i", "<S-Home>", "<Esc>v^")
-map("i", "<S-End>", "<Esc>v$")
+map("i", "<S-Home>", function() fk("<C-o>v^", false) end)
+map("i", "<S-End>", function() fk("<C-o>v$", false) end)
 
 map("v", "<S-Home>", "gV^")
 map("v", "<S-End>", "gV$")
@@ -53,3 +52,4 @@ map("i", "<C-a>", function()
 
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("G$", true, false, true), "n", false)
 end)
+

@@ -1,4 +1,4 @@
-function config()
+local function config()
 
 end
 
@@ -12,3 +12,4 @@ return {
   config = config,
   dependencies = dependencies
 }
+

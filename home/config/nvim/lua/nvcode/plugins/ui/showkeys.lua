@@ -1,15 +1,13 @@
 local function config()
-	vim.cmd("TransparentDisable")
+	require("showkeys").setup({ maxkeys = 7, timeout = 1 })
 end
 
 local dependencies = {}
 
 return {
-	"tribela/transparent.nvim",
+	"nvzone/showkeys",
 
 	config = config,
 	dependencies = dependencies,
-
-	event = "VimEnter",
 }
 
