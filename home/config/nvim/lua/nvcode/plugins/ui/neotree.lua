@@ -13,7 +13,7 @@ local function config()
 				hide_dotfiles = false,
 				hide_gitignored = false,
 
-				never_show = require("nvcode.vscode-settings").get_excluded_files(),
+				never_show = require("nvcode.lib.vscode-settings").get_excluded_files(),
 			},
 		},
 
@@ -41,24 +41,45 @@ local function config()
 				["<C-->"] = "open_split",
 			},
 		},
-
-		event_handlers = {
-			{
-				event = "neo_tree_buffer_enter",
-				handler = function()
-					vim.cmd("highlight! Cursor blend=100")
-				end,
-			},
-			{
-				event = "neo_tree_buffer_leave",
-				handler = function()
-					vim.cmd("highlight! Cursor guibg=#5f87af blend=0")
-				end,
-			},
-		},
 	})
 
 	map({ "i", "v" }, "<C-b>", "<Esc><cmd>Neotree<CR>", { silent = true })
+
+	local cursor_hook = vim.api.nvim_create_augroup("NeoTreeCursorHook", { clear = true })
+
+	vim.api.nvim_create_autocmd({
+		"FileType",
+		"BufEnter",
+		"BufWinEnter",
+		"WinEnter",
+	}, {
+		group = cursor_hook,
+		pattern = "neo-tree",
+
+		callback = function()
+			vim.opt.whichwrap = ""
+
+			local function hide()
+				vim.opt.guicursor = "a:NeoTreeHiddenCursor"
+			end
+
+			vim.api.nvim_set_hl(0, "NeoTreeHiddenCursor", { blend = 100, nocombine = true })
+
+			hide()
+			vim.schedule(hide)
+			vim.defer_fn(hide, 10)
+			vim.defer_fn(hide, 50)
+		end,
+	})
+
+	vim.api.nvim_create_autocmd("BufLeave", {
+		group = cursor_hook,
+
+		callback = function()
+			vim.opt.whichwrap = "<,>,[,]"
+			vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50"
+		end,
+	})
 end
 
 local dependencies = {

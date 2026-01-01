@@ -69,7 +69,7 @@ local function focus_and_open_context()
 end
 
 local function config()
-	vim.keymap.set({ "n", "i" }, "<RightMouse>", focus_and_open_context)
+	vim.keymap.set({ "n", "i", "v" }, "<RightMouse>", focus_and_open_context)
 
 	vim.api.nvim_create_autocmd({ "BufEnter" }, {
 		callback = function()

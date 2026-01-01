@@ -16,9 +16,6 @@ local function download_lazygit()
 
 	local os_type = is_windows and "Windows" or vim.loop.os_uname().sysname
 	local arch = vim.loop.os_uname().machine
-	if arch == "x86_64" then
-		arch = "x86_64"
-	end -- standard
 
 	local version = "0.57.0"
 	local extension = is_windows and "zip" or "tar.gz"

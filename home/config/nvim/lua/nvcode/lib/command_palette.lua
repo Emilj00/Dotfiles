@@ -13,7 +13,7 @@ return {
     { "" },
 
     { "-- GIT --" },
-    { "Show Lazygit", function() require("nvcode.terminals").lazygit:toggle() end },
+    { "Show Lazygit", function() require("nvcode.lib.terminals").lazygit:toggle() end },
     { "" },
 
 

@@ -5,8 +5,8 @@ local function run_command_palette()
 	local action_state = require("telescope.actions.state")
 	local conf = require("telescope.config").values
 
-	package.loaded["nvcode.command_palette"] = nil
-	local actions_list = require("nvcode.command_palette")
+	package.loaded["nvcode.lib.command_palette"] = nil
+	local actions_list = require("nvcode.lib.command_palette")
 
 	pickers
 		.new(
@@ -56,7 +56,7 @@ end
 
 local function get_ignored_patterns()
 	local final_ignores = { "%.git/.*" }
-	local settings = require("nvcode.vscode-settings")
+	local settings = require("nvcode.lib.vscode-settings")
 
 	local vscode_patterns = settings.get_excluded_patterns()
 

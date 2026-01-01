@@ -10,17 +10,20 @@ opacity = 0.9
 x = 1
 y = 1
 
+
 # ==================
 # Environment
 # ==================
 [env]
 TERM = "xterm-256color"
 
+
 # ==================
 # General Settings
 # ==================
 [general]
 import = ["./themes/themes/gruvbox_dark.toml"]
+
 
 # ==================
 # Font Configuration
@@ -36,4 +39,18 @@ size = 12.0
 key = "F"
 mods = "Control|Shift"
 action = "ReceiveChar"
+
+
+
+# ==================
+# Cursor
+# ==================
+[cursor]
+smooth_motion = true
+
+smooth_motion_factor = 0.65
+smooth_motion_spring = 0.75
+
+smooth_motion_max_stretch_x = 3.0
+smooth_motion_max_stretch_y = 3.0
 
